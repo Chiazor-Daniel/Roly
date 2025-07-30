@@ -109,7 +109,7 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                     <FormControl>
                       <div className="relative">
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input placeholder="John" {...field} className="pl-10" />
+                        <Input placeholder="Jane" {...field} className="pl-10" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -125,7 +125,7 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                      <FormControl>
                       <div className="relative">
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input placeholder="Doe" {...field} className="pl-10" />
+                        <Input placeholder="Smith" {...field} className="pl-10" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -143,7 +143,7 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                    <FormControl>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input placeholder="john.doe@example.com" {...field} className="pl-10" />
+                        <Input placeholder="jane.smith@email.com" {...field} className="pl-10" />
                       </div>
                     </FormControl>
                   <FormMessage />
@@ -160,7 +160,7 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                     <FormControl>
                       <div className="relative">
                         <Home className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input placeholder="123 Main St, Anytown, USA" {...field} className="pl-10" />
+                        <Input placeholder="456 Oak Avenue, Metropolis, USA" {...field} className="pl-10" />
                       </div>
                     </FormControl>
                   <FormMessage />
@@ -177,7 +177,7 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                     <FormControl>
                       <div className="relative">
                         <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input placeholder="University of Example" {...field} className="pl-10" />
+                        <Input placeholder="Tech University" {...field} className="pl-10" />
                       </div>
                     </FormControl>
                   <FormMessage />
