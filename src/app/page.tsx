@@ -12,11 +12,11 @@ const LandingPage = ({ onRegisterClick }: { onRegisterClick: () => void }) => (
       <div className="absolute inset-0 z-0">
         <Image
           src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Conference background"
+          alt="City background for conference"
           fill
           style={{ objectFit: 'cover' }}
           className="opacity-40"
-          data-ai-hint="conference stage"
+          data-ai-hint="city conference"
           priority
         />
         <div className="absolute inset-0 bg-black/50" />
@@ -27,7 +27,7 @@ const LandingPage = ({ onRegisterClick }: { onRegisterClick: () => void }) => (
           Join innovators, creators, and pioneers shaping the future.
         </p>
         <Button size="lg" className="mt-8" onClick={onRegisterClick}>
-          Register Now <ArrowRight className="ml-2 h-5 w-5" />
+          Register <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
       </div>
     </header>
@@ -116,7 +116,7 @@ export default function Home() {
     <div className="min-h-screen w-full bg-background">
       <main className="container mx-auto flex w-full flex-col items-center justify-center space-y-8 p-4 md:p-8">
         <div className="text-center mb-8">
-          <h1 className="text-5xl md:text-7xl font-bold text-primary">RegiFlow</h1>
+          <h1 className="text-5xl md:text-7xl font-bold text-primary">Rolly & Ini HR Centre</h1>
           <p className="mt-2 text-lg text-muted-foreground">Effortless Conference Registration</p>
         </div>
         {renderContent()}
