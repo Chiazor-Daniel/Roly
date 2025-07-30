@@ -11,7 +11,7 @@ const LandingPage = ({ onRegisterClick }: { onRegisterClick: () => void }) => (
     <header className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white overflow-hidden rounded-xl shadow-2xl">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1648023199223-25d3622bcb13?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="City background for conference"
           fill
           style={{ objectFit: 'cover' }}
