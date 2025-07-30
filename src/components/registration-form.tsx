@@ -53,9 +53,8 @@ interface RegistrationFormProps {
 }
 
 const PayPalIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mb-3 h-6 w-6">
-        <path d="M10.4 3.9c-2.4 2.1-3.1 5.5-1.8 8.4 1.3 2.9 4.3 4.9 7.6 4.9 2.2 0 4.1-1.1 5.1-2.8a2 2 0 0 0-1.4-3.2H18c-1.3 0-2.3-1.1-2.1-2.4.2-1.1 1.1-2 2.2-2h1.4a2 2 0 0 0 1.9-2.5c-.2-1.1-.9-2-2-2.4-2.2-.8-4.7 0-6.7 1.7z"></path>
-        <path d="M6.3 7.5c-2.5 2.3-3 6.1-1.3 9.1 1.7 3 5 5.1 8.5 5.1 2.2 0 4.2-1 5.2-2.7a2 2 0 0 0-1.4-3.2h-1.3c-1.3 0-2.4-1.1-2.2-2.4.2-1.2 1.2-2.1 2.4-2.1h1.4a2 2 0 0 0 1.9-2.5c-.2-1.1-1-2-2.1-2.4-2.1-.8-4.7 0-6.6 1.7z"></path>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="mb-3 h-6 w-6">
+        <path fill="#003087" d="M20.344 6.075c-.32-1.022-.994-1.83-2.02-2.39-1.127-.61-2.45-.845-3.83-.69-1.28.14-2.46.66-3.48 1.48-.95.76-1.7 1.76-2.2 2.91-.03.1-.05.2-.07.3l-2.34 10.03c-.12.48-.3 1.13-.58 1.29-.28.16-.7.05-1.13-.24-.37-.24-.65-.56-.84-.93-.19-.37-.29-.78-.3-1.22l.86-3.69h2.37c.45 0 .82-.37.82-.82l-1.18-5.1c-.06-.26-.27-.47-.53-.47h-2.1c-.22 0-.42.15-.48.36L5.3 11.23c-.02.1-.04.2-.05.3-.28 1.15.02 2.34.82 3.29.8.95 1.94 1.52 3.2 1.69 1.4.18 2.8-.02 4.05-.62 1.1-.5 2.02-1.34 2.65-2.4.63-1.05 1-2.26.97-3.52-.04-1.43-.53-2.73-1.38-3.79-.19-.24-.4-.46-.62-.67-.22-.21-.45-.42-.7-.6-.05-.04-.1-.08-.14-.13-.52-.5-1.1-1.03-1.74-1.28-.64-.25-1.32-.2-1.95.08-1.03.45-1.85 1.25-2.37 2.26-.1.2-.22.4-.32.6L8.8 13.9c-.02.1-.03.2-.05.3-.1.44-.15.9-.15 1.35 0 .45.05.9.15 1.35l.43 1.84c.14.6.43 1.12.86 1.5.43.38.98.58 1.57.58h.5c1.32 0 2.5-.68 3.2-1.8.35-.55.6-1.18.73-1.85l.74-3.17c.02-.1.05-.2.08-.3.2-.82.63-1.57 1.26-2.18.63-.62 1.4-1.08 2.27-1.32.87-.24 1.77-.24 2.63.03.85.27 1.6.82 2.15 1.55.55.73.88 1.63.92 2.58.04.95-.18 1.88-.66 2.68l-.02.02z"/>
     </svg>
 );
 
@@ -109,7 +108,7 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                     <FormControl>
                       <div className="relative">
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input placeholder="Jane" {...field} className="pl-10" />
+                        <Input placeholder="Chiamaka" {...field} className="pl-10" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -125,7 +124,7 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                      <FormControl>
                       <div className="relative">
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input placeholder="Smith" {...field} className="pl-10" />
+                        <Input placeholder="Okafor" {...field} className="pl-10" />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -143,7 +142,7 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                    <FormControl>
                       <div className="relative">
                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input placeholder="jane.smith@email.com" {...field} className="pl-10" />
+                        <Input placeholder="chiamaka.okafor@example.com" {...field} className="pl-10" />
                       </div>
                     </FormControl>
                   <FormMessage />
@@ -160,7 +159,7 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                     <FormControl>
                       <div className="relative">
                         <Home className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input placeholder="456 Oak Avenue, Metropolis, USA" {...field} className="pl-10" />
+                        <Input placeholder="123 Adetokunbo Ademola Crescent, Wuse II, Abuja" {...field} className="pl-10" />
                       </div>
                     </FormControl>
                   <FormMessage />
@@ -177,7 +176,7 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                     <FormControl>
                       <div className="relative">
                         <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input placeholder="Tech University" {...field} className="pl-10" />
+                        <Input placeholder="University of Lagos" {...field} className="pl-10" />
                       </div>
                     </FormControl>
                   <FormMessage />
