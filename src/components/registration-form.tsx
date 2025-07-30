@@ -36,6 +36,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -49,6 +51,14 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 interface RegistrationFormProps {
   onSuccess: () => void;
 }
+
+const PayPalIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mb-3 h-6 w-6">
+        <path d="M10.4 3.9c-2.4 2.1-3.1 5.5-1.8 8.4 1.3 2.9 4.3 4.9 7.6 4.9 2.2 0 4.1-1.1 5.1-2.8a2 2 0 0 0-1.4-3.2H18c-1.3 0-2.3-1.1-2.1-2.4.2-1.1 1.1-2 2.2-2h1.4a2 2 0 0 0 1.9-2.5c-.2-1.1-.9-2-2-2.4-2.2-.8-4.7 0-6.7 1.7z"></path>
+        <path d="M6.3 7.5c-2.5 2.3-3 6.1-1.3 9.1 1.7 3 5 5.1 8.5 5.1 2.2 0 4.2-1 5.2-2.7a2 2 0 0 0-1.4-3.2h-1.3c-1.3 0-2.4-1.1-2.2-2.4.2-1.2 1.2-2.1 2.4-2.1h1.4a2 2 0 0 0 1.9-2.5c-.2-1.1-1-2-2.1-2.4-2.1-.8-4.7 0-6.6 1.7z"></path>
+    </svg>
+);
+
 
 export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
   const [error, setError] = useState<string | undefined>("");
@@ -250,29 +260,41 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
               control={form.control}
               name="paymentMethod"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="space-y-3">
                   <FormLabel>Payment Method</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <div className="relative">
-                        <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <SelectTrigger className="pl-10">
-                          <SelectValue placeholder="Select a payment method" />
-                        </SelectTrigger>
-                      </div>
-                    </FormControl>
-                    <SelectContent>
-                      {paymentMethods.map((method) => (
-                        <SelectItem key={method} value={method}>
-                          {method}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <FormControl>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                    >
+                      <FormItem>
+                          <RadioGroupItem value="Credit/Debit Card" id="credit-card" className="peer sr-only" />
+                        <Label
+                          htmlFor="credit-card"
+                          className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
+                        >
+                          <CreditCard className="mb-3 h-6 w-6" />
+                          Credit/Debit Card
+                        </Label>
+                      </FormItem>
+                      <FormItem>
+                          <RadioGroupItem value="PayPal" id="paypal" className="peer sr-only" />
+                        <Label
+                          htmlFor="paypal"
+                          className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
+                        >
+                          <PayPalIcon />
+                          PayPal
+                        </Label>
+                      </FormItem>
+                    </RadioGroup>
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
+
 
             {error && (
               <Alert variant="destructive">
