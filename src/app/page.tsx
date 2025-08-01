@@ -6,14 +6,26 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { RegistrationForm } from '@/components/registration-form';
 import { CheckCircle, ArrowRight, Video, BarChart, Users, Loader2 } from 'lucide-react';
 
-const LoadingScreen = () => (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm">
-    <div className="flex flex-col items-center gap-4">
-      <Loader2 className="h-16 w-16 animate-spin text-primary" />
-      <p className="text-lg text-muted-foreground">Processing your registration...</p>
+const LoadingScreen = ({ paymentMethod }: { paymentMethod: string }) => {
+  const getLoadingMessage = () => {
+    if (paymentMethod === 'PayPal') {
+      return 'Redirecting to PayPal...';
+    }
+    if (paymentMethod === 'Credit/Debit Card') {
+      return 'Processing card payment...';
+    }
+    return 'Processing your registration...';
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm">
+      <div className="flex flex-col items-center gap-4">
+        <Loader2 className="h-16 w-16 animate-spin text-primary" />
+        <p className="text-lg text-muted-foreground">{getLoadingMessage()}</p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const LandingPage = ({ onRegisterClick }: { onRegisterClick: () => void }) => (
   <div className="w-full">
@@ -92,8 +104,10 @@ const LandingPage = ({ onRegisterClick }: { onRegisterClick: () => void }) => (
 export default function Home() {
   const [view, setView] = useState<'landing' | 'form' | 'success'>('landing');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState('');
 
-  const handleRegistrationSuccess = () => {
+  const handleRegistrationSuccess = (method: string) => {
+    setPaymentMethod(method);
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
@@ -132,7 +146,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen w-full bg-background">
-      {isSubmitting && <LoadingScreen />}
+      {isSubmitting && <LoadingScreen paymentMethod={paymentMethod} />}
       <main className="container mx-auto flex w-full flex-col items-center justify-center space-y-8 p-4 md:p-8">
         <div className="text-center mb-8">
           <h1 className="text-5xl md:text-7xl font-bold text-primary">Rolly & Ini HR Centre</h1>

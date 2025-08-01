@@ -48,7 +48,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 interface RegistrationFormProps {
-  onSuccess: () => void;
+  onSuccess: (paymentMethod: string) => void;
 }
 
 const PayPalIcon = () => (
@@ -82,7 +82,7 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
             localStorage.setItem('registrations', JSON.stringify(storedRegistrations));
             
             // Trigger the success flow (which includes the loading modal)
-            onSuccess();
+            onSuccess(values.paymentMethod);
         } catch (err) {
             setError("Failed to save registration. Please try again.");
             console.error(err);
