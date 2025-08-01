@@ -1,11 +1,15 @@
 import { Pool } from 'pg';
 
-if (!process.env.POSTGRES_URL) {
-  throw new Error('Missing POSTGRES_URL environment variable');
+// IMPORTANT: For production applications, it is strongly recommended 
+// to use environment variables instead of hardcoding connection strings.
+const connectionString = "postgresql://roly_user:1ctCejXbVVrZBEe7tLnZcpBlNeTnwzHY@dpg-d2685nnfte5s73eftvqg-a.oregon-postgres.render.com/roly";
+
+if (!connectionString) {
+  throw new Error('Database connection string is not set.');
 }
 
 export const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL,
+  connectionString,
 });
 
 async function createTableIfNotExists() {
