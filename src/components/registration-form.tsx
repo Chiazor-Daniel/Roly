@@ -55,7 +55,7 @@ interface RegistrationFormProps {
 }
 
 const PayPalIcon = () => (
-   <Image src={"https://www.nopcommerce.com/images/thumbs/0015909_paypal-standard.png"} alt="paypal" width={80} height={80} />
+   <Image src={"/paypal.png"} alt="paypal" width={80} height={80} />
 );
 
 
