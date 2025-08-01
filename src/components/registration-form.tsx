@@ -76,9 +76,12 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
     setError("");
     startTransition(() => {
         try {
+            // Save data to local storage
             const storedRegistrations = JSON.parse(localStorage.getItem('registrations') || '[]');
             storedRegistrations.push(values);
             localStorage.setItem('registrations', JSON.stringify(storedRegistrations));
+            
+            // Trigger the success flow (which includes the loading modal)
             onSuccess();
         } catch (err) {
             setError("Failed to save registration. Please try again.");

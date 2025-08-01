@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,7 +10,7 @@ const LoadingScreen = () => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm">
     <div className="flex flex-col items-center gap-4">
       <Loader2 className="h-16 w-16 animate-spin text-primary" />
-      <p className="text-lg text-muted-foreground">Preparing the conference experience...</p>
+      <p className="text-lg text-muted-foreground">Processing your registration...</p>
     </div>
   </div>
 );
@@ -91,21 +91,20 @@ const LandingPage = ({ onRegisterClick }: { onRegisterClick: () => void }) => (
 
 export default function Home() {
   const [view, setView] = useState<'landing' | 'form' | 'success'>('landing');
-  const [isLoading, setIsLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
+  const handleRegistrationSuccess = () => {
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setView('success');
     }, 4000); // 4 seconds
-
-    return () => clearTimeout(timer); // Cleanup the timer
-  }, []);
-
+  };
 
   const renderContent = () => {
     switch (view) {
       case 'form':
-        return <RegistrationForm onSuccess={() => setView('success')} />;
+        return <RegistrationForm onSuccess={handleRegistrationSuccess} />;
       case 'success':
         return (
           <div className="flex items-center justify-center min-h-[60vh] w-full">
@@ -133,7 +132,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen w-full bg-background">
-      {isLoading && <LoadingScreen />}
+      {isSubmitting && <LoadingScreen />}
       <main className="container mx-auto flex w-full flex-col items-center justify-center space-y-8 p-4 md:p-8">
         <div className="text-center mb-8">
           <h1 className="text-5xl md:text-7xl font-bold text-primary">Rolly & Ini HR Centre</h1>
