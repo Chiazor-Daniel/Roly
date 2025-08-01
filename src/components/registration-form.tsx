@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useTransition } from "react";
@@ -54,7 +55,7 @@ interface RegistrationFormProps {
 }
 
 const PayPalIcon = () => (
-   <Image src={"https://www.nopcommerce.com/images/thumbs/0015909_paypal-standard.png"} alt="paypal" width={30} height={30} />
+   <Image src={"https://www.nopcommerce.com/images/thumbs/0015909_paypal-standard.png"} alt="paypal" width={80} height={80} />
 );
 
 
@@ -281,7 +282,6 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
                           className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
                         >
                           <PayPalIcon />
-                          PayPal
                         </Label>
                       </FormItem>
                     </RadioGroup>
