@@ -47,13 +47,14 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import Image from "next/image";
 
 interface RegistrationFormProps {
   onSuccess: (paymentMethod: string) => void;
 }
 
 const PayPalIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="mb-3 h-6 w-6"><path fill="#003087" d="M8.32 7.373c.455-1.728 2.034-2.88 3.84-2.88 2.24 0 3.398 1.43 3.086 3.562-.255 1.728-1.254 2.65-2.65 2.65h-1.57c-.77 0-1.254.346-1.42 1.055l-.427 1.764c-.06.25-.09.346-.226.346h-1.3c-.15 0-.255-.092-.227-.346.06-.312.68-4.18 1.05-5.84zm6.653 2.564c.227-1.218-.455-1.92-.94-2.3-.57-.43-1.22-.652-2.06-.652-1.023 0-1.7.4-2.15 1.15-.31.54-.45 1.27-.28 2.09.135.65.65 1.24 1.5 1.24h.54c1.16 0 1.9-.57 2.1-1.84.05-.33.1-.65.2-1.02z"></path><path fill="#009cde" d="M8.093 14.155c-.195-.81-.03-1.27.68-1.27h2.24c.71 0 1.125.375 1.254.99l.484 2.218c.08.312.08.437.284.437h1.08c.22 0 .31-.125.25-.438-.21-1.054-1.12-4.812-1.12-4.812-.22-1.023-.97-1.672-2.03-1.672-1.4 0-2.33.812-2.71 2.39-.51 2.126-.06 4.095.91 5.08.78.78 1.845 1.155 2.94 1.155 1.875 0 3.19-.94 3.6-2.97.08-.436.12-.655.34-.655h.87c.25 0 .345.125.28.517-.375 2.625-2.22 4.312-4.99 4.312-2.995 0-4.815-1.845-5.3-5.22h.02z"></path></svg>
+   <Image src={"https://www.nopcommerce.com/images/thumbs/0015909_paypal-standard.png"} alt="paypal" width={30} height={30} />
 );
 
 
