@@ -10,6 +10,7 @@ if (!connectionString) {
 
 export const pool = new Pool({
   connectionString,
+  ssl: true,
 });
 
 async function createTableIfNotExists() {
