@@ -18,6 +18,7 @@ import {
 import { registrationSchema, registrationStatus, paymentMethods } from "@/lib/schema";
 import type { RegistrationSchema } from "@/lib/schema";
 import { cn } from "@/lib/utils";
+import { registerForConference } from "@/app/actions";
 
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -74,18 +75,12 @@ export function RegistrationForm({ onSuccess }: RegistrationFormProps) {
 
   const onSubmit = (values: RegistrationSchema) => {
     setError("");
-    startTransition(() => {
-        try {
-            // Save data to local storage
-            const storedRegistrations = JSON.parse(localStorage.getItem('registrations') || '[]');
-            storedRegistrations.push(values);
-            localStorage.setItem('registrations', JSON.stringify(storedRegistrations));
-            
-            // Trigger the success flow (which includes the loading modal)
+    startTransition(async () => {
+        const result = await registerForConference(values);
+        if (result.error) {
+            setError(result.error);
+        } else {
             onSuccess(values.paymentMethod);
-        } catch (err) {
-            setError("Failed to save registration. Please try again.");
-            console.error(err);
         }
     });
   };

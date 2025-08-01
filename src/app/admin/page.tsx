@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, useEffect } from 'react';
 import {
   Table,
   TableBody,
@@ -15,23 +12,10 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { format } from 'date-fns';
-import type { RegistrationSchema } from '@/lib/schema';
+import { getRegistrations } from '@/app/actions';
 
-export default function AdminPage() {
-  const [registrations, setRegistrations] = useState<RegistrationSchema[]>([]);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    try {
-      const storedRegistrations = localStorage.getItem('registrations');
-      if (storedRegistrations) {
-        setRegistrations(JSON.parse(storedRegistrations));
-      }
-    } catch (err) {
-      setError("Failed to load registrations from local storage.");
-      console.error(err);
-    }
-  }, []);
+export default async function AdminPage() {
+  const { registrations, error } = await getRegistrations();
 
   return (
     <div className="min-h-screen w-full bg-background">
